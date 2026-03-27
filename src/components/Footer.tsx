@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
@@ -8,8 +9,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="md:col-span-1">
-            <Link href="/" className="font-heading text-3xl text-gold">
-              Gracy
+            <Link href="/">
+              <Image
+                src="/images/logo.webp"
+                alt="Gracy Nails"
+                width={120}
+                height={70}
+                className="h-12 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="text-gray-400 text-sm mt-3 leading-relaxed">
               Nail art & beauty salon in downtown Charlottetown, PEI.

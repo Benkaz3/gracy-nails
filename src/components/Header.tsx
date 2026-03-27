@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { FaBars, FaTimes, FaPhone } from "react-icons/fa";
 
@@ -19,11 +20,15 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/98 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <Link
-            href="/"
-            className="font-heading text-2xl md:text-3xl text-gold font-bold"
-          >
-            Gracy
+          <Link href="/" className="shrink-0">
+            <Image
+              src="/images/logo.webp"
+              alt="Gracy Nails"
+              width={120}
+              height={70}
+              className="h-10 md:h-12 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}
