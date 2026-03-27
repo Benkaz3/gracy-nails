@@ -15,7 +15,7 @@ export default function Footer() {
                 alt="Gracy Nails"
                 width={120}
                 height={70}
-                className="h-14 w-auto brightness-0 invert"
+                className="h-11 w-auto brightness-0 invert"
               />
             </Link>
             <p className="text-gray-400 text-sm mt-3 leading-relaxed">

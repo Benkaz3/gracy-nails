@@ -26,7 +26,7 @@ export default function Header() {
               alt="Gracy Nails"
               width={120}
               height={70}
-              className="h-12 md:h-14 w-auto"
+              className="h-9 md:h-11 w-auto"
               priority
             />
           </Link>
