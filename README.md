@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gracy Nails & Beauty Salon
+
+Website for [Gracy Nails & Beauty Salon](https://gracynails.com), an artistic nail and beauty salon in downtown Charlottetown, PEI.
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Styling:** Tailwind CSS v4
+- **Fonts:** Playfair Display + Inter (Google Fonts)
+- **Deployment:** Vercel (static export)
+
+## Pages
+
+- **Home** (`/`) — Hero, About, Gallery, Booking CTA, Contact with Google Maps
+- **Services** (`/services`) — Full price list with 10 categories and quick-nav
+- **Booking** (`/booking`) — Embedded BelleBooking online scheduling
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+cd website
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+Static export outputs to `out/`.
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Deployed on Vercel. Set **Root Directory** to `website` when importing.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+No environment variables required.
 
-## Deploy on Vercel
+## Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Address:** 146 Prince Street, Charlottetown, PEI, C1A4R6
+- **Phone:** 902-330-6261
+- **Email:** gracynailsbeauty@gmail.com
+- **Facebook:** [@gracynailsbeauty](https://www.facebook.com/profile.php?id=100090193345540)
+- **Instagram:** [@gracynailsbeauty](https://www.instagram.com/gracynailsbeauty/)
