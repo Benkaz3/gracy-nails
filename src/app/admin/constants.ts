@@ -4,5 +4,5 @@ export const ADMIN_PASSWORD_HASH = "$2b$12$llbEWclLLtnvLKl97fYGlOpSJNye81y/mmjZJ
 
 export const GITHUB_REPO_OWNER = "Benkaz3";
 export const GITHUB_REPO_NAME = "gracy-nails";
-export const GITHUB_FILE_PATH = "website/src/data/services.json";
+export const GITHUB_FILE_PATH = "src/data/services.json";
 export const GITHUB_BRANCH = "main";
