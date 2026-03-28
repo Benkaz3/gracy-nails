@@ -1,6 +1,15 @@
 import Image from "next/image";
 import NailGallery from "./NailGallery";
 
+const lashImages = [
+  { src: "/images/lash-before-after-1.webp", alt: "Classic lash extensions before and after" },
+  { src: "/images/lash-before-after-2.webp", alt: "Volume lash extensions before and after" },
+  { src: "/images/lash-before-after-3.webp", alt: "Natural lash extensions before and after" },
+  { src: "/images/lash-before-after-4.webp", alt: "Hybrid lash extensions before and after" },
+  { src: "/images/lash-before-after-5.webp", alt: "Classic lash extensions before and after" },
+  { src: "/images/lash-before-after-6.webp", alt: "Volume lash extensions before and after" },
+];
+
 const salonImages = [
   { src: "/images/gracy-reception.webp", alt: "Reception desk with tulips" },
   { src: "/images/gracy-waiting-2.webp", alt: "Waiting area" },
@@ -58,6 +67,36 @@ export default function Gallery() {
         </div>
 
         <NailGallery />
+
+        <div className="text-center mt-24 mb-16">
+          <h2 className="font-heading text-3xl md:text-4xl text-text-dark mb-3">
+            Lash Transformations
+          </h2>
+          <div className="section-divider">
+            <span className="text-gold-light text-lg">&#10045;</span>
+          </div>
+          <p className="text-text-muted max-w-lg mx-auto">
+            Before &amp; after eyelash extensions by our lash artists
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {lashImages.map((image) => (
+            <div
+              key={image.src}
+              className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-elegant transition-shadow duration-300 [@media(hover:hover)]:hover:shadow-xl"
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                loading="lazy"
+                className="object-cover transition-transform duration-700 ease-out [@media(hover:hover)]:group-hover:scale-105"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
