@@ -43,7 +43,7 @@ const jsonLd = {
   ],
   priceRange: "$$",
   sameAs: [
-    "https://www.facebook.com/profile.php?id=100090193345540",
+    "https://www.facebook.com/gracynailsbeauty/",
     "https://www.instagram.com/gracynailsbeauty/",
   ],
 };

@@ -19,6 +19,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gracynails.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Gracy Nails & Beauty Salon | Charlottetown, PEI",
   description:
     "Artistic nail salon in downtown Charlottetown. Manicures, pedicures, biogel, dip powder, waxing, eyelash extensions. Spa atmosphere with free drinks.",

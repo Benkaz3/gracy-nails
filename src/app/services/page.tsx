@@ -1,11 +1,47 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { serviceCategories } from "@/data/services";
+import { serviceCategories, type ServiceCategory } from "@/data/services";
+
+function buildServiceSchema(categories: ServiceCategory[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "NailSalon",
+    name: "Gracy Nails & Beauty Salon",
+    url: "https://gracynails.com/services",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Nail & Beauty Services",
+      itemListElement: categories.map((cat) => ({
+        "@type": "OfferCatalog",
+        name: cat.name,
+        itemListElement: cat.services.map((svc) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: svc.name,
+            ...(svc.description && { description: svc.description }),
+          },
+          price: svc.price.replace("$", ""),
+          priceCurrency: "CAD",
+        })),
+      })),
+    },
+  };
+}
 
 export const metadata: Metadata = {
   title: "Services & Prices | Gracy Nails & Beauty Salon",
   description:
     "Full service menu and pricing for Gracy Nails — manicures, pedicures, biogel, dip powder, waxing, eyelash extensions, and more.",
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    title: "Services & Prices | Gracy Nails & Beauty Salon",
+    description:
+      "Full service menu and pricing for Gracy Nails — manicures, pedicures, biogel, dip powder, waxing, eyelash extensions, and more.",
+    url: "https://gracynails.com/services",
+  },
 };
 
 function slugify(name: string) {
@@ -16,8 +52,14 @@ function slugify(name: string) {
 }
 
 export default function ServicesPage() {
+  const jsonLd = buildServiceSchema(serviceCategories);
+
   return (
     <div className="pt-20 md:pt-24 pb-20 bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-4">
           <p className="text-gold text-sm tracking-[0.25em] uppercase mb-4 font-medium">

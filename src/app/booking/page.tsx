@@ -3,7 +3,16 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Book an Appointment | Gracy Nails & Beauty Salon",
   description:
-    "Book your appointment online at Gracy Nails & Beauty Salon in Charlottetown, PEI.",
+    "Book your appointment online at Gracy Nails & Beauty Salon in Charlottetown, PEI. Manicures, pedicures, biogel, lash extensions, and more.",
+  alternates: {
+    canonical: "/booking",
+  },
+  openGraph: {
+    title: "Book an Appointment | Gracy Nails & Beauty Salon",
+    description:
+      "Book your appointment online at Gracy Nails & Beauty Salon in Charlottetown, PEI.",
+    url: "https://gracynails.com/booking",
+  },
 };
 
 export default function BookingPage() {

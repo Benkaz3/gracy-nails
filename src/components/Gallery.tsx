@@ -1,6 +1,7 @@
 import Image from "next/image";
+import NailGallery from "./NailGallery";
 
-const images = [
+const salonImages = [
   { src: "/images/gracy-reception.webp", alt: "Reception desk with tulips" },
   { src: "/images/gracy-waiting-2.webp", alt: "Waiting area" },
   { src: "/images/gracy-pedi-chairs.webp", alt: "Pedicure chairs" },
@@ -27,12 +28,10 @@ export default function Gallery() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {images.map((image, idx) => (
+          {salonImages.map((image) => (
             <div
               key={image.src}
-              className={`group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-elegant transition-shadow duration-300 [@media(hover:hover)]:hover:shadow-xl ${
-                idx === images.length - 1 ? "sm:col-span-2 lg:col-span-1" : ""
-              }`}
+              className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-elegant transition-shadow duration-300 [@media(hover:hover)]:hover:shadow-xl"
             >
               <Image
                 src={image.src}
@@ -45,6 +44,20 @@ export default function Gallery() {
             </div>
           ))}
         </div>
+
+        <div className="text-center mt-24 mb-16">
+          <h2 className="font-heading text-3xl md:text-4xl text-text-dark mb-3">
+            Our Work
+          </h2>
+          <div className="section-divider">
+            <span className="text-gold-light text-lg">&#10045;</span>
+          </div>
+          <p className="text-text-muted max-w-lg mx-auto">
+            A selection of nail designs by our talented artists
+          </p>
+        </div>
+
+        <NailGallery />
       </div>
     </section>
   );

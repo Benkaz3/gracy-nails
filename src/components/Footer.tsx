@@ -91,7 +91,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-3 mt-5">
               <a
-                href="https://www.facebook.com/profile.php?id=100090193345540"
+                href="https://www.facebook.com/gracynailsbeauty/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-gold transition-colors p-2 -m-2"

@@ -95,7 +95,7 @@ export default function Contact() {
 
             <div className="flex gap-3 pt-2">
               <a
-                href="https://www.facebook.com/profile.php?id=100090193345540"
+                href="https://www.facebook.com/gracynailsbeauty/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-blue-light/50 hover:bg-blue-light text-text-dark w-11 h-11 rounded-full flex items-center justify-center transition-colors"
