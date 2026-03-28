@@ -10,18 +10,27 @@ import {
   GITHUB_BRANCH,
 } from "./constants";
 import { validateServices } from "@/lib/validate-services";
+import type { Service, ServiceCategory } from "@/data/services";
 
-// ─── Types ────────────────────────────────────────────────────
-interface Service {
-  name: string;
-  duration: string;
-  price: string;
-  description?: string;
+type KeyedService = Service & { _key: string };
+type KeyedCategory = { name: string; services: KeyedService[]; _key: string };
+
+let nextKey = 0;
+function genKey() { return `k${nextKey++}`; }
+
+function addKeys(categories: ServiceCategory[]): KeyedCategory[] {
+  return categories.map((cat) => ({
+    ...cat,
+    _key: genKey(),
+    services: cat.services.map((svc) => ({ ...svc, _key: genKey() })),
+  }));
 }
 
-interface ServiceCategory {
-  name: string;
-  services: Service[];
+function stripKeys(categories: KeyedCategory[]): ServiceCategory[] {
+  return categories.map(({ _key, ...cat }) => ({
+    ...cat,
+    services: cat.services.map(({ _key, ...svc }) => svc),
+  }));
 }
 
 // ─── Password Gate ────────────────────────────────────────────
@@ -139,8 +148,8 @@ function ServiceRow({
   isFirst,
   isLast,
 }: {
-  service: Service;
-  onChange: (updated: Service) => void;
+  service: KeyedService;
+  onChange: (updated: KeyedService) => void;
   onRemove: () => void;
   onMoveUp: () => void;
   onMoveDown: () => void;
@@ -223,8 +232,8 @@ function CategoryEditor({
   isFirst,
   isLast,
 }: {
-  category: ServiceCategory;
-  onChange: (updated: ServiceCategory) => void;
+  category: KeyedCategory;
+  onChange: (updated: KeyedCategory) => void;
   onRemove: () => void;
   onMoveUp: () => void;
   onMoveDown: () => void;
@@ -233,7 +242,7 @@ function CategoryEditor({
 }) {
   const [collapsed, setCollapsed] = useState(false);
 
-  const updateService = (index: number, updated: Service) => {
+  const updateService = (index: number, updated: KeyedService) => {
     const services = [...category.services];
     services[index] = updated;
     onChange({ ...category, services });
@@ -256,7 +265,7 @@ function CategoryEditor({
       ...category,
       services: [
         ...category.services,
-        { name: "", duration: "", price: "" },
+        { name: "", duration: "", price: "", _key: genKey() },
       ],
     });
   };
@@ -287,7 +296,7 @@ function CategoryEditor({
         <div className="p-4 space-y-3">
           {category.services.map((service, idx) => (
             <ServiceRow
-              key={idx}
+              key={service._key}
               service={service}
               onChange={(updated) => updateService(idx, updated)}
               onRemove={() => removeService(idx)}
@@ -312,7 +321,7 @@ function CategoryEditor({
 
 // ─── Main Editor ──────────────────────────────────────────────
 function ServiceEditor({ token }: { token: string }) {
-  const [categories, setCategories] = useState<ServiceCategory[]>([]);
+  const [categories, setCategories] = useState<KeyedCategory[]>([]);
   const [originalJson, setOriginalJson] = useState("");
   const [fileSha, setFileSha] = useState("");
   const [loading, setLoading] = useState(true);
@@ -333,9 +342,10 @@ function ServiceEditor({ token }: { token: string }) {
       if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
       const data = await res.json();
       setFileSha(data.sha);
-      const content = atob(data.content);
-      setOriginalJson(content);
-      setCategories(JSON.parse(content));
+      const content = decodeURIComponent(escape(atob(data.content)));
+      const normalized = JSON.stringify(JSON.parse(content), null, 2) + "\n";
+      setOriginalJson(normalized);
+      setCategories(addKeys(JSON.parse(content)));
     } catch (err) {
       setStatus({ type: "error", message: `Failed to load services: ${err instanceof Error ? err.message : "Unknown error"}` });
     } finally {
@@ -350,15 +360,27 @@ function ServiceEditor({ token }: { token: string }) {
 
   // Live validation
   useEffect(() => {
-    const result = validateServices(categories);
+    const result = validateServices(stripKeys(categories));
     setValidationErrors(result.errors);
   }, [categories]);
 
-  const hasChanges = JSON.stringify(categories, null, 2) !== originalJson;
+  const hasChanges = JSON.stringify(stripKeys(categories), null, 2) + "\n" !== originalJson;
+
+  // Warn before closing tab with unsaved changes
+  useEffect(() => {
+    const handler = (e: BeforeUnloadEvent) => {
+      if (hasChanges) {
+        e.preventDefault();
+      }
+    };
+    window.addEventListener("beforeunload", handler);
+    return () => window.removeEventListener("beforeunload", handler);
+  }, [hasChanges]);
 
   const handleSave = async () => {
     // Final validation before save
-    const result = validateServices(categories);
+    const clean = stripKeys(categories);
+    const result = validateServices(clean);
     if (!result.valid) {
       setValidationErrors(result.errors);
       setStatus({ type: "error", message: "Please fix validation errors before saving." });
@@ -368,7 +390,7 @@ function ServiceEditor({ token }: { token: string }) {
     setSaving(true);
     setStatus(null);
     try {
-      const newContent = JSON.stringify(categories, null, 2) + "\n";
+      const newContent = JSON.stringify(clean, null, 2) + "\n";
       const res = await fetch(apiBase, {
         method: "PUT",
         headers: { ...headers, "Content-Type": "application/json" },
@@ -396,18 +418,20 @@ function ServiceEditor({ token }: { token: string }) {
 
   const handleDiscard = () => {
     if (originalJson) {
-      setCategories(JSON.parse(originalJson));
+      setCategories(addKeys(JSON.parse(originalJson)));
       setStatus(null);
     }
   };
 
-  const updateCategory = (index: number, updated: ServiceCategory) => {
+  const updateCategory = (index: number, updated: KeyedCategory) => {
     const cats = [...categories];
     cats[index] = updated;
     setCategories(cats);
   };
 
   const removeCategory = (index: number) => {
+    const cat = categories[index];
+    if (!window.confirm(`Remove "${cat.name || "Untitled"}" and all its services?`)) return;
     setCategories(categories.filter((_, i) => i !== index));
   };
 
@@ -421,7 +445,7 @@ function ServiceEditor({ token }: { token: string }) {
   const addCategory = () => {
     setCategories([
       ...categories,
-      { name: "", services: [{ name: "", duration: "", price: "" }] },
+      { name: "", services: [{ name: "", duration: "", price: "", _key: genKey() }], _key: genKey() },
     ]);
   };
 
@@ -493,7 +517,7 @@ function ServiceEditor({ token }: { token: string }) {
       <div className="max-w-4xl mx-auto p-4 space-y-4 pb-20">
         {categories.map((category, idx) => (
           <CategoryEditor
-            key={idx}
+            key={category._key}
             category={category}
             onChange={(updated) => updateCategory(idx, updated)}
             onRemove={() => removeCategory(idx)}
