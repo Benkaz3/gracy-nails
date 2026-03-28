@@ -1,0 +1,109 @@
+[
+  {
+    "name": "Biogel Nails",
+    "services": [
+      { "name": "Biogel full set (including Shellac)", "duration": "75 min", "price": "$65", "description": "Nail extension with tip nails" },
+      { "name": "Gel X full set (including Shellac)", "duration": "60 min", "price": "$65", "description": "Nail extension with gel X whole nails" },
+      { "name": "Biogel overlay (including Shellac)", "duration": "60 min", "price": "$55", "description": "Builder gel on natural nails, no nail extension" },
+      { "name": "Biogel refill (including Shellac)", "duration": "75 min", "price": "$55", "description": "Refill on biogel and gel X" },
+      { "name": "French tip / chrome / ombre / long nails (10 fingers)", "duration": "15 min", "price": "$10" },
+      { "name": "Nail arts (2 fingers)", "duration": "15 min", "price": "$10" }
+    ]
+  },
+  {
+    "name": "Dipping Powder",
+    "services": [
+      { "name": "Dipping real nail", "duration": "60 min", "price": "$55" },
+      { "name": "Dipping tip nail", "duration": "75 min", "price": "$65" },
+      { "name": "Add shellac on dip nails", "duration": "15 min", "price": "$10" }
+    ]
+  },
+  {
+    "name": "Nail Polish",
+    "services": [
+      { "name": "Regular polish application (fingers or toes)", "duration": "15 min", "price": "$20" },
+      { "name": "Shellac application (fingers or toes)", "duration": "30 min", "price": "$30" }
+    ]
+  },
+  {
+    "name": "Nail Polish Removal",
+    "services": [
+      { "name": "Biogel / acrylic removal", "duration": "30 min", "price": "$25" },
+      { "name": "Shellac removal", "duration": "10 min", "price": "$10" },
+      { "name": "Regular nail polish removal", "duration": "5 min", "price": "$5" }
+    ]
+  },
+  {
+    "name": "Manicure",
+    "services": [
+      { "name": "Cut nails", "duration": "10 min", "price": "$15", "description": "Cut and file nails" },
+      { "name": "Manicure basic (no nail polish)", "duration": "40 min", "price": "$30", "description": "Remove cuticles, cut and file nails" },
+      { "name": "Manicure regular", "duration": "45 min", "price": "$35", "description": "Remove cuticles, cut and file nails, regular nail polish" },
+      { "name": "Manicure shellac", "duration": "45 min", "price": "$40", "description": "Remove cuticles, cut and file nails, shellac" },
+      { "name": "Spa manicure basic (no nail polish)", "duration": "50 min", "price": "$45", "description": "Remove cuticles, cut and file nails, exfoliant, mask, hot stone massage" },
+      { "name": "Spa manicure regular", "duration": "50 min", "price": "$50", "description": "Remove cuticles, cut and file nails, exfoliant, mask, hot stone massage, regular nail polish" },
+      { "name": "Spa manicure shellac", "duration": "60 min", "price": "$55", "description": "Remove cuticles, cut and file nails, exfoliant, mask, hot stone massage, shellac" }
+    ]
+  },
+  {
+    "name": "Pedicure",
+    "services": [
+      { "name": "Cut nails", "duration": "10 min", "price": "$15", "description": "Cut and file toe nails" },
+      { "name": "Pedicure basic (no nail polish)", "duration": "40 min", "price": "$40", "description": "Remove cuticles, cut and file nails, pedi scrub, massage" },
+      { "name": "Pedicure regular", "duration": "45 min", "price": "$45", "description": "Remove cuticles, cut and file nails, pedi scrub, massage, regular nail polish" },
+      { "name": "Pedicure shellac", "duration": "45 min", "price": "$50", "description": "Remove cuticles, cut and file nails, pedi scrub, massage, shellac" },
+      { "name": "Spa pedicure basic (no nail polish)", "duration": "50 min", "price": "$55", "description": "Remove cuticles, cut and file nails, exfoliant, pedi and sugar scrub, hot stone massage" },
+      { "name": "Spa pedicure regular", "duration": "50 min", "price": "$60", "description": "Remove cuticles, cut nails, exfoliant, pedi and sugar scrub, mask, hot stone massage, regular nail polish" },
+      { "name": "Spa pedicure shellac", "duration": "60 min", "price": "$65", "description": "Remove cuticles, cut nails, exfoliant, pedi and sugar scrub, mask, hot stone massage, shellac" },
+      { "name": "Nail art (2 big toes)", "duration": "10 min", "price": "$10" },
+      { "name": "French tip / chrome (10 toes)", "duration": "10 min", "price": "$5" }
+    ]
+  },
+  {
+    "name": "Relax Service",
+    "services": [
+      { "name": "Foot or hand massage (10 min)", "duration": "10 min", "price": "$15" },
+      { "name": "Foot or hand massage (30 min)", "duration": "30 min", "price": "$35" },
+      { "name": "Thai hot herbal massage on arm or feet (30 min)", "duration": "30 min", "price": "$45", "description": "Thai hot herbal sachet (eye, neck, feet), foot or hand massage with hot stone" }
+    ]
+  },
+  {
+    "name": "Kid Service (under 120cm)",
+    "services": [
+      { "name": "Kid regular nail polish fingers/toes", "duration": "15 min", "price": "$15" },
+      { "name": "Kid shellac nail polish fingers/toes", "duration": "20 min", "price": "$20" },
+      { "name": "Kid manicure regular", "duration": "20 min", "price": "$20" },
+      { "name": "Kid manicure shellac", "duration": "30 min", "price": "$30" },
+      { "name": "Kid pedicure regular", "duration": "30 min", "price": "$25" },
+      { "name": "Kid pedicure shellac", "duration": "30 min", "price": "$35" },
+      { "name": "Kid spa pedicure regular", "duration": "45 min", "price": "$35" },
+      { "name": "Kid spa pedicure shellac", "duration": "45 min", "price": "$40" },
+      { "name": "Kid nail art / sticker (2 nails)", "duration": "10 min", "price": "$5" },
+      { "name": "Kid french tip", "duration": "10 min", "price": "$5" }
+    ]
+  },
+  {
+    "name": "Waxing",
+    "services": [
+      { "name": "Chin", "duration": "10 min", "price": "$10" },
+      { "name": "Upper lip", "duration": "10 min", "price": "$10" },
+      { "name": "Eyebrows", "duration": "10 min", "price": "$15" },
+      { "name": "Face side", "duration": "10 min", "price": "$15" },
+      { "name": "Full face", "duration": "30 min", "price": "$35" }
+    ]
+  },
+  {
+    "name": "Eyelashes & Brows",
+    "services": [
+      { "name": "Eyebrow tinting", "duration": "15 min", "price": "$25" },
+      { "name": "Classic full set", "duration": "90 min", "price": "$90" },
+      { "name": "Classic refill", "duration": "90 min", "price": "$70" },
+      { "name": "Hybrid full set", "duration": "120 min", "price": "$100" },
+      { "name": "Hybrid refill", "duration": "120 min", "price": "$80" },
+      { "name": "Volume full set", "duration": "120 min", "price": "$110" },
+      { "name": "Volume refill", "duration": "120 min", "price": "$90" },
+      { "name": "Lash lift", "duration": "60 min", "price": "$60" },
+      { "name": "Lash removal", "duration": "30 min", "price": "$30" }
+    ]
+  }
+]
