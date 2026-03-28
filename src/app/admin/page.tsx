@@ -38,9 +38,17 @@ function PasswordGate({ onSuccess }: { onSuccess: () => void }) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [checking, setChecking] = useState(false);
+  const [failures, setFailures] = useState(0);
+  const [lockedUntil, setLockedUntil] = useState(0);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const now = Date.now();
+    if (now < lockedUntil) {
+      const secs = Math.ceil((lockedUntil - now) / 1000);
+      setError(`Too many attempts. Try again in ${secs}s.`);
+      return;
+    }
     setError("");
     setChecking(true);
     try {
@@ -49,7 +57,15 @@ function PasswordGate({ onSuccess }: { onSuccess: () => void }) {
         sessionStorage.setItem("admin_auth", "1");
         onSuccess();
       } else {
-        setError("Incorrect password");
+        const newFailures = failures + 1;
+        setFailures(newFailures);
+        if (newFailures >= 3) {
+          const delay = Math.min(1000 * Math.pow(2, newFailures - 3), 60000);
+          setLockedUntil(Date.now() + delay);
+          setError(`Incorrect password. Locked for ${Math.ceil(delay / 1000)}s.`);
+        } else {
+          setError("Incorrect password");
+        }
       }
     } catch {
       setError("Error checking password");

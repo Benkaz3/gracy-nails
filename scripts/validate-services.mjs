@@ -7,6 +7,7 @@ const filePath = resolve(__dirname, "../src/data/services.json");
 
 const PRICE_REGEX = /^\$\d{1,3}$/;
 const DURATION_REGEX = /^\d{1,3} min$/;
+const DANGEROUS_PATTERN = /<\/?script/i;
 
 const MAX_CATEGORIES = 20;
 const MAX_SERVICES_PER_CATEGORY = 30;
@@ -60,6 +61,9 @@ function validate(data) {
       if (name.length > MAX_CATEGORY_NAME_LENGTH) {
         errors.push(`${prefix}: name too long (${name.length} chars, max ${MAX_CATEGORY_NAME_LENGTH})`);
       }
+      if (DANGEROUS_PATTERN.test(name)) {
+        errors.push(`${prefix}: name contains forbidden HTML`);
+      }
       const nameLower = name.toLowerCase();
       if (categoryNames.has(nameLower)) {
         errors.push(`${prefix}: duplicate category name "${name}"`);
@@ -105,6 +109,9 @@ function validate(data) {
         if (name.length > MAX_SERVICE_NAME_LENGTH) {
           errors.push(`${svcPrefix}: name too long`);
         }
+        if (DANGEROUS_PATTERN.test(name)) {
+          errors.push(`${svcPrefix}: name contains forbidden HTML`);
+        }
         const nameLower = name.toLowerCase();
         if (serviceNames.has(nameLower)) {
           errors.push(`${svcPrefix}: duplicate service name "${name}"`);
@@ -139,6 +146,8 @@ function validate(data) {
           errors.push(`${svcPrefix}: description must be a string`);
         } else if (svc.description.length > MAX_DESCRIPTION_LENGTH) {
           errors.push(`${svcPrefix}: description too long`);
+        } else if (DANGEROUS_PATTERN.test(svc.description)) {
+          errors.push(`${svcPrefix}: description contains forbidden HTML`);
         }
       }
     }
