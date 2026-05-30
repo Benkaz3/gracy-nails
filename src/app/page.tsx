@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import PromoBanner from "@/components/PromoBanner";
 import About from "@/components/About";
 import Gallery from "@/components/Gallery";
 import BookingBanner from "@/components/BookingBanner";
@@ -55,6 +56,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
+      <PromoBanner />
       <Hero />
       <FadeIn>
         <About />

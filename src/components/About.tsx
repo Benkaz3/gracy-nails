@@ -18,23 +18,27 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <p className="text-text-muted leading-relaxed mb-6 text-[1.05rem]">
-              Gracy Nails and Beauty Salon is an artistic designed salon located
-              in the heart of Charlottetown downtown at 146 Prince Street (the
-              corner of Prince and Grafton St). Our key services include
-              manicures, pedicures, nail polish, dip powder, biogel (no
-              acrylic), and nail design. We also provide waxing, eyebrow
-              tinting, and eyelash extension services.
+              Welcome to Gracy Nails — your relaxing beauty destination in the
+              heart of Charlottetown, PEI.
             </p>
             <p className="text-text-muted leading-relaxed mb-6 text-[1.05rem]">
-              Gracy provides a spa atmosphere with quietness, light meditation
-              music, the aroma of essential oils, green plants, and a water
-              fountain. Enjoy your best moments with relaxation and free drinks
-              — coffee, tea, and pop.
+              We specialize in nail and lash services, offering a calm, clean,
+              and relaxing atmosphere where every client can unwind and feel
+              refreshed. Our non-scent environment has no strong acrylic smell,
+              creating a more comfortable experience for everyone.
+            </p>
+            <p className="text-text-muted leading-relaxed mb-6 text-[1.05rem]">
+              During your visit, enjoy complimentary Vietnamese coffee or tea
+              while being pampered by our skillful and experienced technicians
+              using high-quality materials.
+            </p>
+            <p className="text-text-muted leading-relaxed mb-6 text-[1.05rem]">
+              Most importantly, we are committed to caring customer service,
+              ensuring every guest feels welcomed, valued, and beautifully cared
+              for.
             </p>
             <p className="text-text-muted leading-relaxed mb-8 text-[1.05rem]">
-              We also offer group services for weddings, birthdays, and
-              bachelorette parties. Our top priority is hygiene, cleanliness, and
-              the health and wellness of every customer.
+              Come relax, refresh, and shine with Gracy Nails.
             </p>
 
             <div className="flex flex-wrap items-center gap-6">
