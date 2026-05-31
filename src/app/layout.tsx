@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
+import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileBookingBar from "@/components/MobileBookingBar";
@@ -69,12 +70,23 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://www.google.com" />
         <link rel="preconnect" href="https://maps.googleapis.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
       </head>
       <body className="antialiased">
         <Header />
         <main>{children}</main>
         <Footer />
         <MobileBookingBar />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-EM67Z57QVF"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-EM67Z57QVF');`}
+        </Script>
       </body>
     </html>
   );
