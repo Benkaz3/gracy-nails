@@ -1,5 +1,16 @@
 [
   {
+    "name": "Valued combos",
+    "services": [
+      {
+        "name": "Senior Pamper Combo",
+        "duration": "90 min",
+        "price": "$65",
+        "description": "Unwind during quiet salon hours. Includes standard manicure & pedicure. $65 package price."
+      }
+    ]
+  },
+  {
     "name": "Biogel Nails",
     "services": [
       {
