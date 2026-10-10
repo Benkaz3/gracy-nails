@@ -354,7 +354,8 @@
       {
         "name": "Lash removal",
         "duration": "30 min",
-        "price": "$30"
+        "price": "$30",
+        "description": "Lash removal"
       }
     ]
   }
