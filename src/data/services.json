@@ -205,6 +205,12 @@
         "name": "French tip / chrome (10 toes)",
         "duration": "10 min",
         "price": "$10"
+      },
+      {
+        "name": "Spa Upgrade Parafin",
+        "duration": "10 min",
+        "price": "$15",
+        "description": "Parafin"
       }
     ]
   },
