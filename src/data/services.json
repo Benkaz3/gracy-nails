@@ -144,10 +144,10 @@
         "description": "Remove cuticles, cut and file nails, exfoliant, mask, hot stone massage, regular nail polish"
       },
       {
-        "name": "Spa manicure shellac",
-        "duration": "60 min",
-        "price": "$55",
-        "description": "Remove cuticles, cut and file nails, exfoliant, mask, hot stone massage, shellac"
+        "name": "Spa Upgrade Parafin",
+        "duration": "10 min",
+        "price": "$15",
+        "description": "Parafin"
       }
     ]
   },
