@@ -69,10 +69,10 @@ export default function Contact() {
                   Email
                 </h3>
                 <a
-                  href="mailto:gracynailsbeauty@gmail.com"
+                  href="mailto:brightlifewellness.inc@gmail.com"
                   className="text-text-muted hover:text-gold transition-colors"
                 >
-                  gracynailsbeauty@gmail.com
+                  brightlifewellness.inc@gmail.com
                 </a>
               </div>
             </div>
