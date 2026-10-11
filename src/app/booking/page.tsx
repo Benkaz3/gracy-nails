@@ -48,7 +48,7 @@ export default function BookingPage() {
           </div>
 
           <iframe
-            src="https://peisalon.staas.io/book.html"
+            src="https://gracynails.staas.io/book.html"
             width="100%"
             className="relative z-10 h-[600px] md:h-[800px] bg-white"
             style={{ border: 0 }}
@@ -60,7 +60,7 @@ export default function BookingPage() {
         <p className="text-center text-sm text-text-muted mt-6">
           If the booking form doesn&apos;t load,{" "}
           <a
-            href="https://peisalon.staas.io/book.html"
+            href="https://gracynails.staas.io/book.html"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gold hover:text-gold-dark underline underline-offset-2 transition-colors"
