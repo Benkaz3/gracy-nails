@@ -144,10 +144,10 @@
         "description": "Remove cuticles, cut and file nails, exfoliant, mask, hot stone massage, regular nail polish"
       },
       {
-        "name": "Spa manicure shellac",
-        "duration": "60 min",
-        "price": "$55",
-        "description": "Remove cuticles, cut and file nails, exfoliant, mask, hot stone massage, shellac"
+        "name": "Spa Upgrade Parafin",
+        "duration": "10 min",
+        "price": "$15",
+        "description": "Parafin"
       }
     ]
   },
@@ -204,7 +204,13 @@
       {
         "name": "French tip / chrome (10 toes)",
         "duration": "10 min",
-        "price": "$5"
+        "price": "$10"
+      },
+      {
+        "name": "Spa Upgrade Parafin",
+        "duration": "10 min",
+        "price": "$15",
+        "description": "Parafin"
       }
     ]
   },
@@ -349,7 +355,7 @@
       {
         "name": "Lash lift",
         "duration": "60 min",
-        "price": "$60"
+        "price": "$70"
       },
       {
         "name": "Lash removal",
